@@ -1,4 +1,4 @@
-$(window).load ->
+$ ->
   TwitterBootstrapConfirmBox = (message, element, callback) ->
     $(document.body).append($('
       <div class="modal hide" id="confirmation_dialog">
