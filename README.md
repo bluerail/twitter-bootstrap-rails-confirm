@@ -25,7 +25,11 @@ Or install it yourself as:
 
 ## Usage
 
-There is nothing you need to do to get this working. A helper could be useful for handling large amount of destroy buttons:
+Add it to your application.js:
+
+    //= require twitter/bootstrap/rails/confirm
+
+Next... nothing. There is nothing you need to do to get this working. A helper could be useful for handling large amount of destroy buttons:
 
     def destroy_link_to(path, options)
       link_to t('.destroy'), path, 
