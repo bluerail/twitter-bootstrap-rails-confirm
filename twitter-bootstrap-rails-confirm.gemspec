@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["rene@bluerail.nl"]
   gem.description   = %q{Confirm dialogs using Twitter Bootstrap}
   gem.summary       = %q{Applies a custom confirm dialog for elements with a data-confirm attribute.}
-  gem.homepage      = "http://www.bluerail.nl"
+  gem.homepage      = "https://github.com/bluerail/twitter-bootstrap-rails-confirm"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
