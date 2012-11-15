@@ -1,4 +1,11 @@
 $ ->
+  $.fn.twitter_bootstrap_confirmbox =
+    defaults:
+      title: null
+      cancel: "Cancel"
+      proceed: "OK"
+      proceed_class: "btn proceed btn-primary"
+
   TwitterBootstrapConfirmBox = (message, element, callback) ->
     $(document.body).append($('
       <div class="modal hide" id="confirmation_dialog">
@@ -9,9 +16,9 @@ $ ->
     '))
 
     $("#confirmation_dialog .modal-body").html(message)
-    $("#confirmation_dialog .modal-header h3").html(element.data("confirm-title") || window.top.location.origin)
-    $("#confirmation_dialog .modal-footer .cancel").html(element.data("confirm-cancel") || "Cancel")
-    $("#confirmation_dialog .modal-footer .proceed").html(element.data("confirm-proceed") || "Ok").attr("class", "btn proceed btn-primary").addClass(element.data("confirm-proceed-class"))
+    $("#confirmation_dialog .modal-header h3").html(element.data("confirm-title") || $.fn.twitter_bootstrap_confirmbox.defaults.title || window.top.location.origin)
+    $("#confirmation_dialog .modal-footer .cancel").html(element.data("confirm-cancel") || $.fn.twitter_bootstrap_confirmbox.defaults.cancel)
+    $("#confirmation_dialog .modal-footer .proceed").html(element.data("confirm-proceed") || $.fn.twitter_bootstrap_confirmbox.defaults.proceed).attr("class", $.fn.twitter_bootstrap_confirmbox.defaults.proceed_class).addClass(element.data("confirm-proceed-class"))
     $("#confirmation_dialog").modal "show"
 
     $("#confirmation_dialog .proceed").click ->
@@ -30,7 +37,6 @@ $ ->
 
     if $.rails.fire(element, "confirm")
       TwitterBootstrapConfirmBox message, element, ->
-        #callback = $.rails.fire(element, "confirm:complete", [answer])
         if $.rails.fire(element, "confirm:complete", [answer])
           allowAction = $.rails.allowAction
 
