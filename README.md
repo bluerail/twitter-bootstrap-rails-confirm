@@ -9,20 +9,24 @@ The normal confirm dialog shows a text with buttons 'ok' and 'cancel'. More info
 * data-confirm-proceed (default: 'ok')
 * data-confirm-proceed-class (default: 'brn-primary')
 
-This behaviour is similar to that of a "regular" confirm box in ways that it uses the same title and button labels. Defaults can be changed in two ways:
+This behaviour is similar to that of a "regular" confirm box in ways that it uses the same title and button labels. Defaults are set when the DOM has been loaded and can be changed in two ways:
 
 Chaning all default values:
 
-    $.fn.twitter_bootstrap_confirmbox.defaults = {
-        title: null, // if title equals null window.top.location.origin is used
-        cancel: "Cancel",
-        proceed: "OK",
-        proceed_class: "btn proceed btn-primary"
-    }
+    $(document).ready(function() {
+        $.fn.twitter_bootstrap_confirmbox.defaults = {
+            title: null, // if title equals null window.top.location.origin is used
+            cancel: "Cancel",
+            proceed: "OK",
+            proceed_class: "btn proceed btn-primary"
+        }
+    });
 
 Only chaning the proceed_class default:
 
-    $.fn.twitter_bootstrap_confirmbox.defaults.proceed_class = "btn proceed btn-success"
+    $(document).ready(function() {
+        $.fn.twitter_bootstrap_confirmbox.defaults.proceed_class = "btn proceed btn-success"
+    });
 
 ## Installation
 
