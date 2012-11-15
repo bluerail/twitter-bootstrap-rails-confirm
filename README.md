@@ -11,7 +11,7 @@ The normal confirm dialog shows a text with buttons 'ok' and 'cancel'. More info
 
 This behaviour is similar to that of a "regular" confirm box in ways that it uses the same title and button labels. Defaults are set when the DOM has been loaded and can be changed in two ways:
 
-Chaning all default values:
+Changing all default values:
 
     $(document).ready(function() {
         $.fn.twitter_bootstrap_confirmbox.defaults = {
@@ -22,7 +22,7 @@ Chaning all default values:
         }
     });
 
-Only chaning the proceed_class default:
+Only changing the proceed_class default:
 
     $(document).ready(function() {
         $.fn.twitter_bootstrap_confirmbox.defaults.proceed_class = "btn proceed btn-success"
