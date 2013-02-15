@@ -42,7 +42,31 @@ $ ->
 
           $.rails.allowAction = ->
             true
-          element.trigger "click"
+          
+          if element.get(0).click
+            element.get(0).click()
+          else if $.isFunction(document.createEvent)
+            evt = document.createEvent "MouseEvents"
+            evt.initMouseEvent(
+              "click",
+              true,   # e.bubbles,
+              true,   #e.cancelable,
+              window, #e.view,
+              0,      #e.detail,
+              0,      #e.screenX,
+              0,      #e.screenY,
+              0,      #e.clientX,
+              0,      #e.clientY,
+              false,  #e.ctrlKey,
+              false,  #e.altKey,
+              false,  #e.shiftKey,
+              false,  #e.metaKey,
+              0,      #e.button,
+              document.body.parentNode #e.relatedTarget
+            )
+            element.get(0).dispatchEvent(evt)
+          else
+            element.trigger "click"
 
           $.rails.allowAction = allowAction
     
