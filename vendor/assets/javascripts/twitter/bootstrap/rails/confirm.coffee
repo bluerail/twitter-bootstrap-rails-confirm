@@ -7,13 +7,15 @@ $ ->
       proceed_class: "btn proceed btn-primary"
 
   TwitterBootstrapConfirmBox = (message, element, callback) ->
-    $(document.body).append($('
-      <div class="modal hide" id="confirmation_dialog">
-        <div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h3>...</h3></div>
-        <div class="modal-body"></div>
-        <div class="modal-footer"><a href="#" class="btn cancel" data-dismiss="modal">...</a><a href="#" class="btn proceed btn-primary">...</a></div>
-      </div>
-    '))
+    $(document.body).append(
+      $(
+        '<div class="modal hide" id="confirmation_dialog">
+          <div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h3>...</h3></div>
+          <div class="modal-body"></div>
+          <div class="modal-footer"><a href="#" class="btn cancel" data-dismiss="modal">...</a><a href="#" class="btn proceed btn-primary">...</a></div>
+        </div>'
+      )
+    )
 
     $("#confirmation_dialog .modal-body").html(message)
     $("#confirmation_dialog .modal-header h3").html(element.data("confirm-title") || $.fn.twitter_bootstrap_confirmbox.defaults.title || window.top.location.origin)
