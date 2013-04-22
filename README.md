@@ -4,6 +4,7 @@ This gem adds some javascript to change the default behaviour of data-confirm pr
 
 The normal confirm dialog shows a text with buttons 'ok' and 'cancel'. More information is needed here for a user to make the right decision. This gem therefore also adds:
 
+* data-confirm-fade (default: false)
 * data-confirm-title (default: window.top.location.origin)
 * data-confirm-cancel (default: 'cancel')
 * data-confirm-proceed (default: 'ok')
@@ -14,6 +15,7 @@ This behaviour is similar to that of a "regular" confirm box in ways that it use
 Changing all default values:
 
     $.fn.twitter_bootstrap_confirmbox.defaults = {
+        fade: false,
         title: null, // if title equals null window.top.location.origin is used
         cancel: "Cancel",
         proceed: "OK",
@@ -52,6 +54,7 @@ Next... nothing. There is nothing you need to do to get this working. A helper c
         :method => :delete,
         :class => "btn",
         :confirm => t('.destroy_confirm.body', :item => options[:item]),
+        "data-confirm-fade" => true,
         "data-confirm-title" => t('.destroy_confirm.title', :item => options[:item]),
         "data-confirm-cancel" => t('.destroy_confirm.cancel', :item => options[:item]),
         "data-confirm-proceed" => t('.destroy_confirm.proceed', :item => options[:item]),
