@@ -68,3 +68,16 @@ Next... nothing. There is nothing you need to do to get this working. A helper c
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Changelog
+
+### 1.0.1 (April 23, 2013)
+
+* (kramerc) Add an option for including the fade class.
+* (taavo) update docs to remove DOM load requirement when setting defaults
+* (taavo) don't wait for dom to load
+
+### 1.0.0 (February 22, 2013)
+
+* First 'official' release
+* Many thanks to taavo for his contributions
