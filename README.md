@@ -69,6 +69,12 @@ Next... nothing. There is nothing you need to do to get this working. A helper c
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
+## Testing
+
+* install npm
+* npm install jasmine-node jsdom jquery
+* rake
+
 ## Changelog
 
 ### 1.0.1 (April 23, 2013)
