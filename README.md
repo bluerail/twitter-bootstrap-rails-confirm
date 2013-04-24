@@ -71,13 +71,21 @@ Next... nothing. There is nothing you need to do to get this working. A helper c
 
 ## Changelog
 
+### In active development
+
+* Javascript testing using Jasmine
+
+### Upcoming release
+
+* [(kramerc)](https://github.com/kramerc) [Prevent the default action on the modal's buttons.](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/9)
+* [(taavo)](https://github.com/taavo) [click handler returns false](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/6)
+
 ### 1.0.1 (April 23, 2013)
 
-* (kramerc) Add an option for including the fade class.
-* (taavo) update docs to remove DOM load requirement when setting defaults
-* (taavo) don't wait for dom to load
+* [(kramerc)](https://github.com/kramerc) [Add an option for including the fade class](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/8)
+* [(taavo)](https://github.com/taavo) [Load asap](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/5)
 
 ### 1.0.0 (February 22, 2013)
 
 * First 'official' release
-* Many thanks to taavo for his contributions
+* Many thanks to [taavo](https://github.com/taavo) for his contributions
