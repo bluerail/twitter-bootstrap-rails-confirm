@@ -26,12 +26,14 @@ TwitterBootstrapConfirmBox = (message, element, callback) ->
     $(this).remove()
   )
 
-  $("#confirmation_dialog .proceed").click ->
+  $("#confirmation_dialog .proceed").click (event) ->
+    event.preventDefault()
     $("#confirmation_dialog").modal("hide")
     callback()
     false
 
-  $("#confirmation_dialog .cancel").click ->
+  $("#confirmation_dialog .cancel").click (event) ->
+    event.preventDefault()
     $("#confirmation_dialog").modal("hide")
     false
 
