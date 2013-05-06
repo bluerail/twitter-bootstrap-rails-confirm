@@ -8,7 +8,7 @@ The normal confirm dialog shows a text with buttons 'ok' and 'cancel'. More info
 * data-confirm-title (default: window.top.location.origin)
 * data-confirm-cancel (default: 'cancel')
 * data-confirm-proceed (default: 'ok')
-* data-confirm-proceed-class (default: 'brn-primary')
+* data-confirm-proceed-class (default: 'btn-primary')
 
 This behaviour is similar to that of a "regular" confirm box in ways that it uses the same title and button labels. Defaults can be changed in two ways:
 
