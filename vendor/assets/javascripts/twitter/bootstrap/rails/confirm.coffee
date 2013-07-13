@@ -3,6 +3,7 @@ $.fn.twitter_bootstrap_confirmbox =
     fade: false
     title: null
     cancel: "Cancel"
+    cancel_class: "btn cancel"
     proceed: "OK"
     proceed_class: "btn proceed btn-primary"
 
@@ -20,7 +21,7 @@ TwitterBootstrapConfirmBox = (message, element, callback) ->
   $("#confirmation_dialog").addClass("fade") if element.data("confirm-fade") || $.fn.twitter_bootstrap_confirmbox.defaults.fade
   $("#confirmation_dialog .modal-body").html(message)
   $("#confirmation_dialog .modal-header h3").html(element.data("confirm-title") || $.fn.twitter_bootstrap_confirmbox.defaults.title || window.top.location.origin)
-  $("#confirmation_dialog .modal-footer .cancel").html(element.data("confirm-cancel") || $.fn.twitter_bootstrap_confirmbox.defaults.cancel)
+  $("#confirmation_dialog .modal-footer .cancel").html(element.data("confirm-cancel") || $.fn.twitter_bootstrap_confirmbox.defaults.cancel).attr("class", $.fn.twitter_bootstrap_confirmbox.defaults.cancel_class).addClass(element.data("confirm-cancel-class"))
   $("#confirmation_dialog .modal-footer .proceed").html(element.data("confirm-proceed") || $.fn.twitter_bootstrap_confirmbox.defaults.proceed).attr("class", $.fn.twitter_bootstrap_confirmbox.defaults.proceed_class).addClass(element.data("confirm-proceed-class"))
   $("#confirmation_dialog").modal("show").on("hidden", ->
     $(this).remove()
