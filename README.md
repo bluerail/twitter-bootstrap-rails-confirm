@@ -82,6 +82,7 @@ Next... nothing. There is nothing you need to do to get this working. A helper c
 
 * [(kramerc)](https://github.com/kramerc) [Prevent the default action on the modal's buttons.](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/9)
 * [(taavo)](https://github.com/taavo) [click handler returns false](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/6)
+* [(rvanlieshout)](https://github.com/rvanlieshout) Support for Bootstrap 3
 
 ### 1.0.1 (April 23, 2013)
 

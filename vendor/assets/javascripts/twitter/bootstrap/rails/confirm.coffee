@@ -10,17 +10,21 @@ $.fn.twitter_bootstrap_confirmbox =
 TwitterBootstrapConfirmBox = (message, element, callback) ->
   $(document.body).append(
     $(
-      '<div class="modal hide" id="confirmation_dialog">
-        <div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h3>...</h3></div>
-        <div class="modal-body"></div>
-        <div class="modal-footer"><a href="#" class="btn cancel" data-dismiss="modal">...</a><a href="#" class="btn proceed btn-primary">...</a></div>
+      '<div class="modal fade" id="confirmation_dialog" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h4 class="modal-title">...</h4></div>
+            <div class="modal-body"></div>
+            <div class="modal-footer"><a href="#" class="btn cancel btn-default" data-dismiss="modal">...</a><a href="#" class="btn proceed btn-primary">...</a></div>
+          </div>
+        </div>
       </div>'
     )
   )
 
   $("#confirmation_dialog").addClass("fade") if element.data("confirm-fade") || $.fn.twitter_bootstrap_confirmbox.defaults.fade
   $("#confirmation_dialog .modal-body").html(message)
-  $("#confirmation_dialog .modal-header h3").html(element.data("confirm-title") || $.fn.twitter_bootstrap_confirmbox.defaults.title || window.top.location.origin)
+  $("#confirmation_dialog .modal-header h4").html(element.data("confirm-title") || $.fn.twitter_bootstrap_confirmbox.defaults.title || window.top.location.origin)
   $("#confirmation_dialog .modal-footer .cancel").html(element.data("confirm-cancel") || $.fn.twitter_bootstrap_confirmbox.defaults.cancel).attr("class", $.fn.twitter_bootstrap_confirmbox.defaults.cancel_class).addClass(element.data("confirm-cancel-class"))
   $("#confirmation_dialog .modal-footer .proceed").html(element.data("confirm-proceed") || $.fn.twitter_bootstrap_confirmbox.defaults.proceed).attr("class", $.fn.twitter_bootstrap_confirmbox.defaults.proceed_class).addClass(element.data("confirm-proceed-class"))
   $("#confirmation_dialog").modal("show").on("hidden", ->
