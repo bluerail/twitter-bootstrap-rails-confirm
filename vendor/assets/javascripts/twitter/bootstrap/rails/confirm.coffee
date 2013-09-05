@@ -53,7 +53,7 @@ $.rails.allowAction = (element) ->
         
         if element.get(0).click
           element.get(0).click()
-        else if $.isFunction(document.createEvent)
+        else
           evt = new MouseEvents("click", {
             bubbles : true,
             cancelable : true,
@@ -71,8 +71,6 @@ $.rails.allowAction = (element) ->
             relatedTarget : document.body.parentNode
           })
           element.get(0).dispatchEvent(evt)
-        else
-          element.trigger "click"
 
         $.rails.allowAction = allowAction
   
