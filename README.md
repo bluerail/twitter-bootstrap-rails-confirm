@@ -28,20 +28,19 @@ Only changing one default value:
 
     $.fn.twitter_bootstrap_confirmbox.defaults.proceed_class = "btn proceed btn-success";
 
-
 ## Installation
 
 Add this line to your application's Gemfile:
 
     gem 'twitter-bootstrap-rails-confirm'
 
+Or for Bootstrap 3 support:
+
+    gem 'twitter-bootstrap-rails-confirm', github: 'bluerail/twitter-bootstrap-rails-confirm', branch: 'bootstrap3'
+
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install twitter-bootstrap-rails-confirm
 
 ## Usage
 
@@ -83,7 +82,7 @@ Next... nothing. There is nothing you need to do to get this working. A helper c
 * [(kramerc)](https://github.com/kramerc) [Prevent the default action on the modal's buttons.](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/9)
 * [(taavo)](https://github.com/taavo) [click handler returns false](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/6)
 * [(stevelacey)](https://github.com/stevelacey) [Swap out new lines for br's in message](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/16)
-* [(DavyCardinaal)](https://github.com/DavyCardinaal) [Confirmbox defaults: Cancel button btn-default](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/15)
+* [(DavyCardinaal)](https://github.com/DavyCardinaal) [Confirmbox defaults: Cancel button btn-default](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/15) (Bootstrap 3 only)
 * [(digitalfrost)](https://github.com/digitalfrost) [Create "click" event using an event constructor](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/14)
 
 ### 1.0.1 (April 23, 2013)
