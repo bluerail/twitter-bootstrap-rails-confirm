@@ -3,7 +3,7 @@ $.fn.twitter_bootstrap_confirmbox =
     fade: false
     title: null
     cancel: "Cancel"
-    cancel_class: "btn cancel"
+    cancel_class: "btn cancel btn-default"
     proceed: "OK"
     proceed_class: "btn proceed btn-primary"
 
