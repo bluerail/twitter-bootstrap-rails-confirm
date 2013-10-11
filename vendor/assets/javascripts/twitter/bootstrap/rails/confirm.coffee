@@ -33,7 +33,7 @@ TwitterBootstrapConfirmBox = (message, element, callback) ->
     .end()
 
     .find(".modal-footer")
-      .append( ->
+      .append(
         $("<a />", {href: "#", "data-dismiss": "modal"})
           .html(element.data("confirm-cancel") || $.fn.twitter_bootstrap_confirmbox.defaults.cancel)
           .addClass($.fn.twitter_bootstrap_confirmbox.defaults.cancel_class)
