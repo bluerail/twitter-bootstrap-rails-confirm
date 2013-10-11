@@ -23,7 +23,7 @@ TwitterBootstrapConfirmBox = (message, element, callback) ->
   )
 
   $("#confirmation_dialog").addClass("fade") if element.data("confirm-fade") || $.fn.twitter_bootstrap_confirmbox.defaults.fade
-  $("#confirmation_dialog .modal-body").html(message)
+  $("#confirmation_dialog .modal-body").html(message.replace(/\n/g, "<br />"))
   $("#confirmation_dialog .modal-header h4").html(element.data("confirm-title") || $.fn.twitter_bootstrap_confirmbox.defaults.title || window.top.location.origin)
   $("#confirmation_dialog .modal-footer .cancel").html(element.data("confirm-cancel") || $.fn.twitter_bootstrap_confirmbox.defaults.cancel).attr("class", $.fn.twitter_bootstrap_confirmbox.defaults.cancel_class).addClass(element.data("confirm-cancel-class"))
   $("#confirmation_dialog .modal-footer .proceed").html(element.data("confirm-proceed") || $.fn.twitter_bootstrap_confirmbox.defaults.proceed).attr("class", $.fn.twitter_bootstrap_confirmbox.defaults.proceed_class).addClass(element.data("confirm-proceed-class"))
@@ -57,28 +57,24 @@ $.rails.allowAction = (element) ->
         
         if element.get(0).click
           element.get(0).click()
-        else if $.isFunction(document.createEvent)
-          evt = document.createEvent "MouseEvents"
-          evt.initMouseEvent(
-            "click",
-            true,   # e.bubbles,
-            true,   #e.cancelable,
-            window, #e.view,
-            0,      #e.detail,
-            0,      #e.screenX,
-            0,      #e.screenY,
-            0,      #e.clientX,
-            0,      #e.clientY,
-            false,  #e.ctrlKey,
-            false,  #e.altKey,
-            false,  #e.shiftKey,
-            false,  #e.metaKey,
-            0,      #e.button,
-            document.body.parentNode #e.relatedTarget
-          )
-          element.get(0).dispatchEvent(evt)
         else
-          element.trigger "click"
+          evt = new MouseEvents("click", {
+            bubbles : true,
+            cancelable : true,
+            view : window,
+            detail : 0,
+            screenX : 0,
+            screenY : 0,
+            clientX : 0,
+            clientY : 0,
+            ctrlKey : false,
+            altKey : false,
+            shiftKey : false,
+            metaKey : false,
+            button : 0,
+            relatedTarget : document.body.parentNode
+          })
+          element.get(0).dispatchEvent(evt)
 
         $.rails.allowAction = allowAction
   
