@@ -77,8 +77,8 @@ $.rails.allowAction = (element) ->
         if element.get(0).click
           element.get(0).click()
           
-        else if MouseEvent?
-          evt = new MouseEvent("click", {
+        else if Event?
+          evt = new Event("click", {
             bubbles: true,
             cancelable: true,
             view: window,
