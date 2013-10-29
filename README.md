@@ -77,6 +77,11 @@ Next... nothing. There is nothing you need to do to get this working. A helper c
 
 * Javascript testing using Jasmine
 
+### Unreleased
+
+* [(rvanlieshout)](https://github.com/rvanlieshout) [Problems with using event constructors](https://github.com/bluerail/twitter-bootstrap-rails-confirm/issues/18)
+* [(stevelacey)](https://github.com/stevelacey) [Avoid appending custom proceed class to btn-primary, refactored dialog JS](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/17)
+
 ### 1.0.2 (Oktober 11, 2013)
 
 * [(kramerc)](https://github.com/kramerc) [Prevent the default action on the modal's buttons.](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/9)

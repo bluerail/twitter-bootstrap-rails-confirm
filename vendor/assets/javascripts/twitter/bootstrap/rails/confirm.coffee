@@ -76,23 +76,45 @@ $.rails.allowAction = (element) ->
         
         if element.get(0).click
           element.get(0).click()
-        else
-          evt = new MouseEvents("click", {
-            bubbles : true,
-            cancelable : true,
-            view : window,
-            detail : 0,
-            screenX : 0,
-            screenY : 0,
-            clientX : 0,
-            clientY : 0,
-            ctrlKey : false,
-            altKey : false,
-            shiftKey : false,
-            metaKey : false,
-            button : 0,
-            relatedTarget : document.body.parentNode
+          
+        else if MouseEvent?
+          evt = new MouseEvent("click", {
+            bubbles: true,
+            cancelable: true,
+            view: window,
+            detail: 0,
+            screenX: 0,
+            screenY: 0,
+            clientX: 0,
+            clientY: 0,
+            ctrlKey: false,
+            altKey: false,
+            shiftKey: false,
+            metaKey: false,
+            button: 0,
+            relatedTarget: document.body.parentNode
           })
+          element.get(0).dispatchEvent(evt)
+
+        else if $.isFunction(document.createEvent)
+          evt = document.createEvent "MouseEvents"
+          evt.initMouseEvent(
+            "click",
+            true,   # e.bubbles,
+            true,   # e.cancelable,
+            window, # e.view,
+            0,      # e.detail,
+            0,      # e.screenX,
+            0,      # e.screenY,
+            0,      # e.clientX,
+            0,      # e.clientY,
+            false,  # e.ctrlKey,
+            false,  # e.altKey,
+            false,  # e.shiftKey,
+            false,  # e.metaKey,
+            0,      # e.button,
+            document.body.parentNode # e.relatedTarget
+          )
           element.get(0).dispatchEvent(evt)
 
         $.rails.allowAction = allowAction
