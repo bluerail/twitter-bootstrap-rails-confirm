@@ -33,7 +33,7 @@ TwitterBootstrapConfirmBox = (message, element, callback) ->
     .end()
 
     .find(".modal-body")
-      .html(message.replace(/\n/g, "<br />"))
+      .html(message.toString().replace(/\n/g, "<br />"))
     .end()
 
     .find(".modal-footer")
