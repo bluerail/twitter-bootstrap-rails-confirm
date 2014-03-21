@@ -79,6 +79,7 @@ Next... nothing. There is nothing you need to do to get this working. A helper c
 
 ### Unreleased
 
+* [(rvanlieshout)](https://github.com/rvanlieshout) Support for Bootstrap 3
 * [(rvanlieshout)](https://github.com/rvanlieshout) [Problems with using event constructors](https://github.com/bluerail/twitter-bootstrap-rails-confirm/issues/18)
 * [(stevelacey)](https://github.com/stevelacey) [Avoid appending custom proceed class to btn-primary, refactored dialog JS](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/17)
 * [(zsy056)](https://github.com/zsy056) [When message is numerical, the call replace on message will cause a TypeError](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/22)

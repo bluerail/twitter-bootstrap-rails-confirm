@@ -9,13 +9,17 @@ $.fn.twitter_bootstrap_confirmbox =
 
 TwitterBootstrapConfirmBox = (message, element, callback) ->
   $dialog = $('
-    <div class="modal hide" id="confirmation_dialog">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">×</button>
-        <h3>...</h3>
+    <div class="modal" id="confirmation_dialog" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h4 class="modal-title">...</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer"></div>
+        </div>
       </div>
-      <div class="modal-body"></div>
-      <div class="modal-footer"></div>
     </div>
   ')
 
@@ -23,7 +27,7 @@ TwitterBootstrapConfirmBox = (message, element, callback) ->
 
   $dialog
     .find(".modal-header")
-      .find("h3")
+      .find("h4")
         .html(element.data("confirm-title") || $.fn.twitter_bootstrap_confirmbox.defaults.title || window.top.location.origin)
       .end()
     .end()
@@ -37,7 +41,7 @@ TwitterBootstrapConfirmBox = (message, element, callback) ->
         $("<a />", {href: "#", "data-dismiss": "modal"})
           .html(element.data("confirm-cancel") || $.fn.twitter_bootstrap_confirmbox.defaults.cancel)
           .addClass($.fn.twitter_bootstrap_confirmbox.defaults.cancel_class)
-          .addClass(element.data("confirm-cancel-class"))
+          .addClass(element.data("confirm-cancel-class") || "btn-default")
           .click((event) ->
             event.preventDefault()
             $dialog.modal("hide")
