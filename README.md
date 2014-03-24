@@ -10,6 +10,7 @@ The normal confirm dialog shows a text with buttons 'ok' and 'cancel'. More info
 * data-confirm-cancel-class (default: 'btn cancel')
 * data-confirm-proceed (default: 'ok')
 * data-confirm-proceed-class (default: 'btn-primary')
+* data-confirm-modal (default: false)
 
 This behaviour is similar to that of a "regular" confirm box in ways that it uses the same title and button labels. Defaults can be changed in two ways:
 
@@ -17,6 +18,7 @@ Changing all default values:
 
     $.fn.twitter_bootstrap_confirmbox.defaults = {
         fade: false,
+        modal: false,
         title: null, // if title equals null window.top.location.origin is used
         cancel: "Cancel",
         cancel_class: "btn cancel",
@@ -56,6 +58,7 @@ Next... nothing. There is nothing you need to do to get this working. A helper c
         :class => "btn",
         :confirm => t('.destroy_confirm.body', :item => options[:item]),
         "data-confirm-fade" => true,
+        "data-confirm-modal" => false,
         "data-confirm-title" => t('.destroy_confirm.title', :item => options[:item]),
         "data-confirm-cancel" => t('.destroy_confirm.cancel', :item => options[:item]),
         "data-confirm-cancel-class" => "btn-cancel"),

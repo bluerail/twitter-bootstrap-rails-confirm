@@ -6,6 +6,7 @@ $.fn.twitter_bootstrap_confirmbox =
     cancel: "Cancel"
     cancel_class: "btn cancel"
     fade: false
+    modal: true
 
 TwitterBootstrapConfirmBox = (message, element, callback) ->
   $dialog = $('
@@ -66,61 +67,68 @@ TwitterBootstrapConfirmBox = (message, element, callback) ->
     .appendTo(document.body)
 
 $.rails.allowAction = (element) ->
+  modal =  if element.data('confirm-modal')? then false else $.fn.twitter_bootstrap_confirmbox.defaults.modal
   message = element.data("confirm")
   answer = false
   return true unless message
 
   if $.rails.fire(element, "confirm")
-    TwitterBootstrapConfirmBox message, element, ->
-      if $.rails.fire(element, "confirm:complete", [answer])
-        allowAction = $.rails.allowAction
-
-        $.rails.allowAction = ->
-          true
-        
-        if element.get(0).click
-          element.get(0).click()
-          
-        else if Event?
-          evt = new Event("click", {
-            bubbles: true,
-            cancelable: true,
-            view: window,
-            detail: 0,
-            screenX: 0,
-            screenY: 0,
-            clientX: 0,
-            clientY: 0,
-            ctrlKey: false,
-            altKey: false,
-            shiftKey: false,
-            metaKey: false,
-            button: 0,
-            relatedTarget: document.body.parentNode
-          })
-          element.get(0).dispatchEvent(evt)
-
-        else if $.isFunction(document.createEvent)
-          evt = document.createEvent "MouseEvents"
-          evt.initMouseEvent(
-            "click",
-            true,   # e.bubbles,
-            true,   # e.cancelable,
-            window, # e.view,
-            0,      # e.detail,
-            0,      # e.screenX,
-            0,      # e.screenY,
-            0,      # e.clientX,
-            0,      # e.clientY,
-            false,  # e.ctrlKey,
-            false,  # e.altKey,
-            false,  # e.shiftKey,
-            false,  # e.metaKey,
-            0,      # e.button,
-            document.body.parentNode # e.relatedTarget
-          )
-          element.get(0).dispatchEvent(evt)
-
-        $.rails.allowAction = allowAction
+    if modal
+      TwitterBootstrapConfirmBox message, element, ->
+        if $.rails.fire(element, "confirm:complete", [answer])
+          allowAction = $.rails.allowAction
   
+          $.rails.allowAction = ->
+            true
+          
+          if element.get(0).click
+            element.get(0).click()
+            
+          else if Event?
+            evt = new Event("click", {
+              bubbles: true,
+              cancelable: true,
+              view: window,
+              detail: 0,
+              screenX: 0,
+              screenY: 0,
+              clientX: 0,
+              clientY: 0,
+              ctrlKey: false,
+              altKey: false,
+              shiftKey: false,
+              metaKey: false,
+              button: 0,
+              relatedTarget: document.body.parentNode
+            })
+            element.get(0).dispatchEvent(evt)
+  
+          else if $.isFunction(document.createEvent)
+            evt = document.createEvent "MouseEvents"
+            evt.initMouseEvent(
+              "click",
+              true,   # e.bubbles,
+              true,   # e.cancelable,
+              window, # e.view,
+              0,      # e.detail,
+              0,      # e.screenX,
+              0,      # e.screenY,
+              0,      # e.clientX,
+              0,      # e.clientY,
+              false,  # e.ctrlKey,
+              false,  # e.altKey,
+              false,  # e.shiftKey,
+              false,  # e.metaKey,
+              0,      # e.button,
+              document.body.parentNode # e.relatedTarget
+            )
+            element.get(0).dispatchEvent(evt)
+  
+          $.rails.allowAction = allowAction
+            $.rails.allowAction = allowAction
+    else
+      if $.rails.fire(element, 'confirm')
+        answer = $.rails.confirm(message)
+        callback = $.rails.fire(element, 'confirm:complete', [answer])
+      return answer && callback
   false
