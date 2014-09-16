@@ -1,6 +1,6 @@
 # Twitter::Bootstrap::Rails::Confirm
 
-This gem adds some javascript to change the default behaviour of data-confirm processing.
+This gem adds some javascript to change the default behaviour of data-confirm processing for both Boostrap 2 and Bootstrap 3.
 
 The normal confirm dialog shows a text with buttons 'ok' and 'cancel'. More information is needed here for a user to make the right decision. This gem therefore also adds:
 
@@ -33,10 +33,6 @@ Only changing one default value:
 Add this line to your application's Gemfile:
 
     gem 'twitter-bootstrap-rails-confirm'
-
-Or for Bootstrap 3 support:
-
-    gem 'twitter-bootstrap-rails-confirm', github: 'bluerail/twitter-bootstrap-rails-confirm', branch: 'bootstrap3'
 
 And then execute:
 
@@ -72,6 +68,10 @@ Next... nothing. There is nothing you need to do to get this working. A helper c
 5. Create new Pull Request
 
 ## Changelog
+
+### Upcoming release
+
+* [(rvanlieshout)](https://github.com/rvanlieshout) Added bootstrap 3 support
 
 ### 1.0.3 (September 4, 2014)
 
