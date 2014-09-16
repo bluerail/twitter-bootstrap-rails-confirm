@@ -15,7 +15,7 @@ TwitterBootstrapConfirmBox = (message, element, callback) ->
       <div class="modal hide" id="confirmation_dialog">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">×</button>
-          <h3>...</h3>
+          <h3 class="modal-title">...</h3>
         </div>
         <div class="modal-body"></div>
         <div class="modal-footer"></div>
@@ -41,7 +41,7 @@ TwitterBootstrapConfirmBox = (message, element, callback) ->
 
   $dialog
     .find(".modal-header")
-      .find("h3")
+      .find(".modal-title")
         .html(element.data("confirm-title") || $.fn.twitter_bootstrap_confirmbox.defaults.title || window.top.location.origin)
       .end()
     .end()
