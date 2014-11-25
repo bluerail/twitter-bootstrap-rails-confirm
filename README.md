@@ -69,7 +69,7 @@ Next... nothing. There is nothing you need to do to get this working. A helper c
 
 ## Changelog
 
-### Upcoming release
+### 1.0.4 (November 25, 2014)
 
 * [(rvanlieshout)](https://github.com/rvanlieshout) Added bootstrap 3 support
 
