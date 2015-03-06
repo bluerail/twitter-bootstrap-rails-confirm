@@ -81,6 +81,7 @@ TwitterBootstrapConfirmBox = (message, element, callback) ->
 
 if (typeof $().modal == 'function') # test if bootstrap is loaded
   $.rails.allowAction = (element) ->
+    $(element).blur();
     message = element.data("confirm")
     answer = false
     return true unless message
