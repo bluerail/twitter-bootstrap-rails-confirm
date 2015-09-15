@@ -6,6 +6,7 @@ $.fn.twitter_bootstrap_confirmbox =
     cancel: "Cancel"
     cancel_class: "btn cancel"
     fade: false
+    modal_class: ""
 
 TwitterBootstrapConfirmBox = (message, element, callback) ->
   bootstrap_version = if (typeof $().emulateTransitionEnd == 'function') then 3 else 2
@@ -36,6 +37,8 @@ TwitterBootstrapConfirmBox = (message, element, callback) ->
         </div>
       </div>
     ')
+
+  $dialog.addClass(element.data("confirm-modal-class") || $.fn.twitter_bootstrap_confirmbox.defaults.modal_class)
 
   $dialog.addClass("fade") if element.data("confirm-fade") || $.fn.twitter_bootstrap_confirmbox.defaults.fade
 
