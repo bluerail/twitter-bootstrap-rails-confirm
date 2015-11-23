@@ -72,6 +72,10 @@ TwitterBootstrapConfirmBox = (message, element, callback) ->
           )
       )
     .end()
+    
+    .on('keypress', (e) ->
+      $('.modal-footer a:last').trigger('click') if e.keyCode == 13 # Enter Key Code
+    )
 
     .on("hidden", -> $(this).remove())
 
