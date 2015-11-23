@@ -38,6 +38,8 @@ And then execute:
 
     $ bundle
 
+Note: [jQuery-Rails should be > 2.2.1](https://github.com/bluerail/twitter-bootstrap-rails-confirm/issues/27). The exact required version has not yet been determined.
+
 ## Usage
 
 Add it to your application.js, anywhere after you require jquery_ujs:
