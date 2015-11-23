@@ -69,6 +69,10 @@ Next... nothing. There is nothing you need to do to get this working. A helper c
 
 ## Changelog
 
+### 1.0.5 Unreleased
+
+* [(joseramonc)](https://github.com/joseramonc) [Confirm dialog on enter keypress](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/33)
+
 ### 1.0.4 (November 25, 2014)
 
 * [(rvanlieshout)](https://github.com/rvanlieshout) Added bootstrap 3 support
