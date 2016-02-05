@@ -21,7 +21,8 @@ Changing all default values:
         cancel: "Cancel",
         cancel_class: "btn cancel",
         proceed: "OK",
-        proceed_class: "btn proceed btn-primary"
+        proceed_class: "btn proceed btn-primary",
+        modal_class: ""
     };
 
 Only changing one default value:
@@ -71,8 +72,9 @@ Next... nothing. There is nothing you need to do to get this working. A helper c
 
 ## Changelog
 
-### 1.0.5 Unreleased
+### 1.0.5 (February 5, 2016)
 
+* [(marceuy)](https://github.com/marceuy) [Added option for styling dialog](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/31)
 * [(joseramonc)](https://github.com/joseramonc) [Confirm dialog on enter keypress](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/33)
 
 ### 1.0.4 (November 25, 2014)
