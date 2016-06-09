@@ -72,6 +72,10 @@ Next... nothing. There is nothing you need to do to get this working. A helper c
 
 ## Changelog
 
+### 1.0.6 (June 9, 2016)
+
+* [(rvanlieshout)](https://github.com/rvanlieshout) [Added proper events for Bootstrap 3](https://github.com/bluerail/twitter-bootstrap-rails-confirm/issues/28)
+
 ### 1.0.5 (February 5, 2016)
 
 * [(marceuy)](https://github.com/marceuy) [Added option for styling dialog](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/31)
