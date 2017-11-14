@@ -9,34 +9,50 @@ $.fn.twitter_bootstrap_confirmbox =
     modal_class: ""
 
 TwitterBootstrapConfirmBox = (message, element, callback) ->
-  bootstrap_version = if (typeof $().emulateTransitionEnd == 'function') then 3 else 2
+  bootstrap_version = if (typeof $().emulateTransitionEnd == 'function') then parseInt($.fn.tooltip.Constructor.VERSION[0]) else 2
 
-  if bootstrap_version == 2
-    $dialog = $('
-      <div class="modal hide" id="confirmation_dialog">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">×</button>
-          <h3 class="modal-title">...</h3>
+  switch bootstrap_version
+    when 2
+      $dialog = $('
+        <div class="modal hide" id="confirmation_dialog">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3 class="modal-title">...</h3>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer"></div>
         </div>
-        <div class="modal-body"></div>
-        <div class="modal-footer"></div>
-      </div>
-    ')
-  else
-    $dialog = $('
-      <div class="modal" id="confirmation_dialog" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">×</button>
-              <h4 class="modal-title">...</h4>
+      ')
+    when 3
+      $dialog = $('
+        <div class="modal" id="confirmation_dialog" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title">...</h4>
+              </div>
+              <div class="modal-body"></div>
+              <div class="modal-footer"></div>
             </div>
-            <div class="modal-body"></div>
-            <div class="modal-footer"></div>
           </div>
         </div>
-      </div>
-    ')
+      ')
+    else # 4
+      $dialog = $('
+        <div class="modal" id="confirmation_dialog" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">...</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+              </div>
+              <div class="modal-body"></div>
+              <div class="modal-footer"></div>
+            </div>
+          </div>
+        </div>
+      ')
 
   $dialog.addClass(element.data("confirm-modal-class") || $.fn.twitter_bootstrap_confirmbox.defaults.modal_class)
 
@@ -58,7 +74,7 @@ TwitterBootstrapConfirmBox = (message, element, callback) ->
         $("<a />", {href: "#", "data-dismiss": "modal"})
           .html(element.data("confirm-cancel") || $.fn.twitter_bootstrap_confirmbox.defaults.cancel)
           .addClass($.fn.twitter_bootstrap_confirmbox.defaults.cancel_class)
-          .addClass(element.data("confirm-cancel-class") || "btn-default")
+          .addClass(element.data("confirm-cancel-class") || ("btn-secondary" if bootstrap_version == 4) || "btn-default")
           .click((event) ->
             event.preventDefault()
             $dialog.modal("hide")
