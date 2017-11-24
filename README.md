@@ -1,8 +1,9 @@
 # Twitter::Bootstrap::Rails::Confirm
 
-This gem adds some javascript to change the default behaviour of data-confirm processing for both Boostrap 2 and Bootstrap 3.
+This gem adds some javascript to change the default behaviour of data-confirm processing for both Boostrap 2, 3 and 4.
 
-The normal confirm dialog shows a text with buttons 'ok' and 'cancel'. More information is needed here for a user to make the right decision. This gem therefore also adds:
+The normal confirm dialog shows a text with buttons 'ok' and 'cancel'. More information is needed here for a user to
+make the right decision. This gem therefore also adds:
 
 * data-confirm-fade (default: false)
 * data-confirm-title (default: window.top.location.origin)
@@ -11,56 +12,76 @@ The normal confirm dialog shows a text with buttons 'ok' and 'cancel'. More info
 * data-confirm-proceed (default: 'ok')
 * data-confirm-proceed-class (default: 'btn-primary')
 
-This behaviour is similar to that of a "regular" confirm box in ways that it uses the same title and button labels. Defaults can be changed in two ways:
+This behaviour is similar to that of a "regular" confirm box in ways that it uses the same title and button labels.
+Defaults can be changed in two ways:
 
 Changing all default values:
 
-    $.fn.twitter_bootstrap_confirmbox.defaults = {
-        fade: false,
-        title: null, // if title equals null window.top.location.origin is used
-        cancel: "Cancel",
-        cancel_class: "btn cancel",
-        proceed: "OK",
-        proceed_class: "btn proceed btn-primary",
-        modal_class: ""
-    };
+```javascript
+$.fn.twitter_bootstrap_confirmbox.defaults = {
+  fade: false,
+  title: null, // if title equals null window.top.location.origin is used
+  cancel: "Cancel",
+  cancel_class: "btn cancel",
+  proceed: "OK",
+  proceed_class: "btn proceed btn-primary",
+  modal_class: ""
+};
+```
 
 Only changing one default value:
 
-    $.fn.twitter_bootstrap_confirmbox.defaults.proceed_class = "btn proceed btn-success";
+```javascript
+$.fn.twitter_bootstrap_confirmbox.defaults.proceed_class = "btn proceed btn-success";
+```
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'twitter-bootstrap-rails-confirm'
+```ruby
+gem 'twitter-bootstrap-rails-confirm'
+```
 
 And then execute:
 
-    $ bundle
+```
+$ bundle
+```
 
-Note: [jQuery-Rails should be > 2.2.1](https://github.com/bluerail/twitter-bootstrap-rails-confirm/issues/27). The exact required version has not yet been determined.
+Note: [jQuery-Rails should be > 2.2.1](https://github.com/bluerail/twitter-bootstrap-rails-confirm/issues/27). The exact
+required version has not yet been determined.
 
 ## Usage
 
 Add it to your application.js, anywhere after you require jquery_ujs:
 
-    //= require twitter/bootstrap/rails/confirm
+```coffeescript
+//= require twitter/bootstrap/rails/confirm
+```
 
-Next... nothing. There is nothing you need to do to get this working. A helper could be useful for handling large amount of destroy buttons:
+Next... nothing. There is nothing you need to do to get this working. A helper could be useful for handling large amount
+of destroy buttons:
 
-    def destroy_link_to(path, options)
-      link_to t('.destroy'), path, 
-        :method => :delete,
-        :class => "btn",
-        :confirm => t('.destroy_confirm.body', :item => options[:item]),
-        "data-confirm-fade" => true,
-        "data-confirm-title" => t('.destroy_confirm.title', :item => options[:item]),
-        "data-confirm-cancel" => t('.destroy_confirm.cancel', :item => options[:item]),
-        "data-confirm-cancel-class" => "btn-cancel"),
-        "data-confirm-proceed" => t('.destroy_confirm.proceed', :item => options[:item]),
-        "data-confirm-proceed-class" => "btn-danger"
-    end
+```ruby
+def destroy_link_to(path, options)
+  link_to t('.destroy'), path,
+    :method => :delete,
+    :class => "btn",
+    :confirm => t('.destroy_confirm.body', :item => options[:item]),
+    "data-confirm-fade" => true,
+    "data-confirm-title" => t('.destroy_confirm.title', :item => options[:item]),
+    "data-confirm-cancel" => t('.destroy_confirm.cancel', :item => options[:item]),
+    "data-confirm-cancel-class" => "btn-cancel"),
+    "data-confirm-proceed" => t('.destroy_confirm.proceed', :item => options[:item]),
+    "data-confirm-proceed-class" => "btn-danger"
+end
+```
+
+## Testing
+
+See [Twitter Bootstrap Rails Confirm Test](https://github.com/bluerail/twitter-bootstrap-rails-confirm-test) for a
+simple app that loads Bootstrap and this gem.
 
 ## Contributing
 
@@ -71,6 +92,10 @@ Next... nothing. There is nothing you need to do to get this working. A helper c
 5. Create new Pull Request
 
 ## Changelog
+
+### 1.0.7 (November 24, 2017)
+
+* [(thiesp)](https://github.com/thiesp) [Adding template and setting default cancel class to btn-secondary for bootstrap 4](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/358)
 
 ### 1.0.6 (June 9, 2016)
 
