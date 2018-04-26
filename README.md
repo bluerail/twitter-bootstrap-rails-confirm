@@ -67,14 +67,14 @@ of destroy buttons:
 def destroy_link_to(path, options)
   link_to t('.destroy'), path,
     :method => :delete,
-    :class => "btn",
+    :class => 'btn',
     :confirm => t('.destroy_confirm.body', :item => options[:item]),
-    "data-confirm-fade" => true,
-    "data-confirm-title" => t('.destroy_confirm.title', :item => options[:item]),
-    "data-confirm-cancel" => t('.destroy_confirm.cancel', :item => options[:item]),
-    "data-confirm-cancel-class" => "btn-cancel"),
-    "data-confirm-proceed" => t('.destroy_confirm.proceed', :item => options[:item]),
-    "data-confirm-proceed-class" => "btn-danger"
+    'data-confirm-fade' => true,
+    'data-confirm-title' => t('.destroy_confirm.title', :item => options[:item]),
+    'data-confirm-cancel' => t('.destroy_confirm.cancel', :item => options[:item]),
+    'data-confirm-cancel-class' => 'btn-default'),
+    'data-confirm-proceed' => t('.destroy_confirm.proceed', :item => options[:item]),
+    'data-confirm-proceed-class' => 'btn-danger'
 end
 ```
 
@@ -93,9 +93,13 @@ simple app that loads Bootstrap and this gem.
 
 ## Changelog
 
+### 2.0.0 (April 26, 2018)
+
+* [(mftaff)](https://github.com/mftaff) [Convert CoffeeScript to JavaScript](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/37)
+
 ### 1.0.7 (November 24, 2017)
 
-* [(thiesp)](https://github.com/thiesp) [Adding template and setting default cancel class to btn-secondary for bootstrap 4](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/358)
+* [(thiesp)](https://github.com/thiesp) [Adding template and setting default cancel class to btn-secondary for bootstrap 4](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/35)
 
 ### 1.0.6 (June 9, 2016)
 
