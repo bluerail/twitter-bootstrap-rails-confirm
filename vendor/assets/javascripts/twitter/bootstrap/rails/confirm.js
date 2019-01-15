@@ -15,7 +15,15 @@
 
   TwitterBootstrapConfirmBox = function(message, element, callback) {
     var $dialog, bootstrap_version;
-    bootstrap_version = typeof $().emulateTransitionEnd === 'function' ? parseInt($.fn.tooltip.Constructor.VERSION[0]) : 2;
+    if (typeof $().emulateTransitionEnd === 'function') {
+      if ($.fn.tooltip.Constructor === undefined) {
+        bootstrap_version = Tooltip.VERSION[0]
+      } else {
+        bootstrap_version = $.fn.tooltip.Constructor.VERSION[0]
+      }
+    } else {
+      bootstrap_version = 2
+    }
 
     switch (bootstrap_version) {
       case 2:

@@ -93,6 +93,10 @@ simple app that loads Bootstrap and this gem.
 
 ## Changelog
 
+### 2.0.1 (January 14, 2018)
+
+* [(eirvandelden)](https://github.com/eirvandelden) [Bootstrap 4 version is stored in Tooltip.VERSION](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/38)
+
 ### 2.0.0 (April 26, 2018)
 
 * [(mftaff)](https://github.com/mftaff) [Convert CoffeeScript to JavaScript](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/37)
