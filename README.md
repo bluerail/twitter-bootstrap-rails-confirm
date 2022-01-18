@@ -93,6 +93,10 @@ simple app that loads Bootstrap and this gem.
 
 ## Changelog
 
+### 2.0.2 (January 18, 2022)
+
+* BREAKING: Resolved possible XSS by using .text() over .html()
+
 ### 2.0.1 (January 14, 2018)
 
 * [(eirvandelden)](https://github.com/eirvandelden) [Bootstrap 4 version is stored in Tooltip.VERSION](https://github.com/bluerail/twitter-bootstrap-rails-confirm/pull/38)

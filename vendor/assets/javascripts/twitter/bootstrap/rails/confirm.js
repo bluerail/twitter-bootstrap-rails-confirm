@@ -42,12 +42,17 @@
       $dialog.addClass("fade");
     }
 
-    $dialog.find(".modal-header .modal-title").html(element.data("confirm-title") || $.fn.twitter_bootstrap_confirmbox.defaults.title || window.top.location.origin);
+    $dialog.find(".modal-header .modal-title").text(element.data("confirm-title") || $.fn.twitter_bootstrap_confirmbox.defaults.title || window.top.location.origin);
 
-    $dialog.find(".modal-body").html(message.toString().replace(/\n/g, "<br />"));
+    var dialog_body = $dialog.find(".modal-body");
+    var paragraphs = message.toString().split(/\n/);
+    dialog_body.html('');
+    for (var paragraph_index in paragraphs) {
+      $("<p></p>").appendTo(dialog_body).text(paragraphs[paragraph_index]);
+    }
 
     var cancel_buton = $("<a />", { href: "#", "data-dismiss": "modal" });
-    cancel_buton.html(element.data("confirm-cancel") || $.fn.twitter_bootstrap_confirmbox.defaults.cancel);
+    cancel_buton.text(element.data("confirm-cancel") || $.fn.twitter_bootstrap_confirmbox.defaults.cancel);
     cancel_buton.addClass($.fn.twitter_bootstrap_confirmbox.defaults.cancel_class);
     cancel_buton.addClass(element.data("confirm-cancel-class") || (bootstrap_version === 4 ? "btn-secondary" : void 0) || "btn-default");
     cancel_buton.click(function(event) {
@@ -57,7 +62,7 @@
     $dialog.find(".modal-footer").append(cancel_buton);
 
     var confirm_button = $("<a />", { href: "#" });
-    confirm_button.html(element.data("confirm-proceed") || $.fn.twitter_bootstrap_confirmbox.defaults.proceed);
+    confirm_button.text(element.data("confirm-proceed") || $.fn.twitter_bootstrap_confirmbox.defaults.proceed);
     confirm_button.addClass($.fn.twitter_bootstrap_confirmbox.defaults.proceed_class);
     confirm_button.addClass(element.data("confirm-proceed-class") || "btn-primary");
     confirm_button.click(function(event) {
