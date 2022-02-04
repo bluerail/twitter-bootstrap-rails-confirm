@@ -47,8 +47,8 @@
     var dialog_body = $dialog.find(".modal-body");
     var paragraphs = message.toString().split(/\n/);
     dialog_body.html('');
-    for (var paragraph_index in paragraphs) {
-      $("<p></p>").appendTo(dialog_body).text(paragraphs[paragraph_index]);
+    for (var i = 0; i < paragraphs.length; i++) {
+      $("<p></p>").appendTo(dialog_body).text(paragraphs[i]);
     }
 
     var cancel_buton = $("<a />", { href: "#", "data-dismiss": "modal" });
